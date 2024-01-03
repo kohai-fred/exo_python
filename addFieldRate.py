@@ -1,7 +1,7 @@
 from random import randint
 from population import populations
 
-def addFieldRange() :
+def addFieldRate() :
   for population in populations :
-    population["range"] = randint(1, 100)
+    population["rate"] = randint(1, 100)
   return populations
