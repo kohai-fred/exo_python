@@ -4,7 +4,7 @@ from addFieldRate import addFieldRate
 
 
 def getTopPopulations(list: list):
-    sortedList = sorted(list, key=lambda x: x['range'], reverse=True)
+    sortedList = sorted(list, key=lambda x: x['rate'], reverse=True)
     return sortedList[0:4:]
 
 
