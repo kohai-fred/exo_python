@@ -1,5 +1,5 @@
 from population import populations
-from addFieldRate import addFieldRange
+from addFieldRate import addFieldRate
 
 
 
@@ -8,5 +8,5 @@ def getTopPopulations(list: list):
     return sortedList[0:4:]
 
 
-list = getTopPopulations(addFieldRange())
+list = getTopPopulations(addFieldRate())
 print( list )
