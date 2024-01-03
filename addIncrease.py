@@ -1,8 +1,8 @@
 from addFieldRate import addFieldRate
 
-populations = addFieldRate()
 
-def addIncrease(populations, increase = 0.01):
+def addIncrease(increase = 0.01):
+  populations = addFieldRate()
   for population in populations :
     population["rate"] += population["rate"] * increase
   return populations
