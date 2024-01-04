@@ -1,23 +1,28 @@
-const express = require('express');
+import express from "express";
+import populations from "./populations.js";
+
 const app = express();
 const port = 3000;
 
-// Middleware pour le traitement des données JSON
 app.use(express.json());
 
-// Endpoint de test
-app.get('/', (req, res) => {
-    res.send('Bienvenue sur mon API Node.js !');
+app.get("/api/populations", (req, res) => {
+  res.json(populations);
 });
 
-// Endpoint pour une requête POST
-app.post('/api/data', (req, res) => {
-    const data = req.body;
-    // Faites quelque chose avec les données, par exemple, renvoyez-les
-    res.json({ message: 'Données reçues avec succès', data });
+// Endpoint pour ajouter un produit au panier
+app.get("/api/person/:id", (req, res) => {
+  const id = req.params?.id || undefined;
+  const person = populations.find((p) => p.id == id);
+  if (person) {
+    res.status(200).json(person);
+
+    return;
+  }
+
+  res.status(404).json({ message: "Personne non trouvée" });
 });
 
-// Démarrer le serveur
 app.listen(port, () => {
-    console.log(`Serveur en cours d'exécution sur http://localhost:${port}`);
+  console.log(`Microservice gestion des persons ${port}`);
 });
